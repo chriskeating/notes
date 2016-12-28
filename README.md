@@ -3,6 +3,9 @@ var foo = { 'alpha' : 'puffin', 'beta' : 'beagle' };
 var keys = Object.keys(foo); 
 // would print ['alpha', 'beta']
 
+Access multiple nested keys using
+first.hobbies[0]
+
 alert (“Thanks for your input!”);
 
 var name = “Chris”;
@@ -324,3 +327,22 @@ var msToday = today.getTime (); //in order to get milliseconds for the day
 var msDoomsday.getTime (); //and then find the difference
 var msDiff = msDoomsday - msToday; //then convert to days
 var dDiff = msDIff / (1000 * 60 * 60 * 24);
+
+function addBinary(a,b) {
+  var sumNum = a + b;
+  var sumNumBinary = '';
+  while (sumNum > 1) {
+    sumNumBinary.push ('1');
+    sumNum -= 2;
+  }
+  if (sumNum === 1) {
+  sumNumBinary.push('1');
+  } else if (sumNum === 0){
+  sumNumBinary.push('0');
+  }
+  return sumNumBinary;
+}
+
+addBinary (5,7);
+
+
