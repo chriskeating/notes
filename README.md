@@ -345,4 +345,95 @@ function addBinary(a,b) {
 
 addBinary (5,7);
 
+Var square = function (x) {
+Return x * x;
+};
+
+var power = function (base, exponent) {
+var result = 1;
+for (var count  = 0; count < exponent; count++) {
+	result = result * base;
+return result;
+}
+};
+
+
+function DNAStrand(dna){
+  var DNAOtherSide = [];
+  for (var i = 0; i < dna.length; i++) {
+    if (dna[i] === "A") {
+      DNAOtherSide.push("T");
+    } else if (dna[i] === T) {
+      DNAOtherSide.push("A");
+    } else if (dna[i] === C) {
+      DNAOtherSide.push("G");
+    } else if (dna[i] === G) {
+      DNAOtherSide.push("C");
+    }
+  }
+ return DNAOtherSide; 
+};  
+
+/*var cashRegister = {
+    total:0,
+    add: function(itemCost){
+        this.total += itemCost;
+    }
+};
+
+*/
+
+
+//call the add method for our items
+var cashRegister = {
+    total: 0,
+    add: function (itemCost) {
+        this.total += itemCost;
+    }
+};
+/*var eggs = .98;
+var milk = 1.23;
+var mag = 4.99;
+var choc = .45;
+cashRegister.add(eggs);
+cashRegister.add(milk);
+cashRegister.add(mag);
+cashRegister.add(choc);
+*/
+function list (name, price) {
+    var name = price;
+};
+var groceries = new list () {
+    eggs: .98,
+    milk: 1.23,
+    mag: 4.99,
+    choc: .45
+}; 
+
+for (var i = 0; i <groceries.length; i++) {
+    cashRegister.add(groceries[i]);
+};
+/*
+function foodPrices (number) {
+    foodPrices.eggs: .98;
+    foodPrices.milk: 1.23;
+    foodPrices.mag: 4.99;
+    foodPrices.choc: .45;
+}    
+for (var i = 0; i < foodPrices.length; i++) {
+    cashRegister.add (foodPrices[i]);*/
+//Show the total bill
+console.log('Your bill is '+cashRegister.total);
+
+
+
+
+
+/*var foodAndPrices = [["eggs", "milk", "mags", "choc"],[.98, 1.23, 4.99, .45]]
+function respective (foodAndPrices) {
+    for (var i = 0; i < foodAndPrices.length; i++) {
+        return foodAndPrices [[i],[i]];
+    };
+};
+*/
 
