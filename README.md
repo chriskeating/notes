@@ -472,4 +472,6 @@ function compare (choice1, choice2) {
         }
     }
 };
-console.log(compare(userChoice,computerChoice));
+console.log(compare(userChoice,computerChoice));\
+
+1 is true and 0 is false
