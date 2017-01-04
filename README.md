@@ -514,3 +514,5 @@ function search (lastName) {
     }
 };
 search ("Jones");
+
+method is a function associated with a specific object
