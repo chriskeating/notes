@@ -516,3 +516,32 @@ function search (lastName) {
 search ("Jones");
 
 method is a function associated with a specific object
+
+function transformEmployeeData(array) {
+    var answer = [];
+    for (var i = 0; i < array.length; i++) {
+        var miniObject = {};
+        for (var j = 0; j < array[i].length; j++) {
+            var miniAnswer;
+            miniAnswer += (array[i][j][0] + ": " + array[i][j][1]);
+        }
+        answer.push({miniAnswer});
+        miniAnswer = 0;
+    }
+    return answer;
+}
+        
+/* for loop that goes through the indexes of each and adds to an object using either literal notation or a constructor
+potentially 3 for loops embedded inside one another
+*/
+
+
+
+for (var i = 0; i < customerData.length; i++) {
+        if (customerData[i][0] === 0) {
+            greeting = 'Welcome! Is this your first time?';
+        } else if (customerData[i][0] === 1) {
+            greeting = "Welcome back, Joe! We're glad you liked us the first time!";
+        } else if (customerData[i][0] > 1) {
+            greeting = "Welcome back, Carol! So glad to see you again!";
+
