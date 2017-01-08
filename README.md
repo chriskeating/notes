@@ -545,3 +545,10 @@ for (var i = 0; i < customerData.length; i++) {
         } else if (customerData[i][0] > 1) {
             greeting = "Welcome back, Carol! So glad to see you again!";
 
+function assertEqual (actual, expected, testName) {
+  if (actual === expected) {
+    console.log('passed');
+  } else {
+    console.log('FAILED: ' + testName + '. Expected: ' + expected + ' but got ' + actual);
+  }
+}
