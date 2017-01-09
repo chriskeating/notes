@@ -552,3 +552,150 @@ function assertEqual (actual, expected, testName) {
     console.log('FAILED: ' + testName + '. Expected: ' + expected + ' but got ' + actual);
   }
 }
+
+
+function assertEqual(actual, expected, testName) {
+  if (actual === expected) {
+    console.log('passed');
+  } else {
+    console.log('FAILED ' + testName + ': Expected ' + expected + ', but got ' + actual);
+  }
+}
+
+function assertEqual (actual, expected, testName) {
+  if (actual === expected) {
+    console.log('passed')';
+  } else {
+    console.log('FAILED ' + testName + ': Expected ' + expected + ', but got ' + actual);
+  }
+}
+
+App Academy Exercises, My Solutions
+
+/*disemvowel
+
+Write a function disemvowel(string), which takes in a string, and returns that string with all the vowels removed. Treat "y" as a consonant.*/
+
+function disemvowel(string) {
+  var newString = '';
+  for (var i = string.length - 1; i >= 0; i--) {
+    if (string[i] === 'a' || string[i] === 'e' || string[i] === 'i' || string[i] === 'o' || string[i] === 'u') {
+      string = string.substr(0,i) + string.substr(i+1);
+    }
+  }
+  return string;
+}
+
+disemvowel("foobar");// == "fbr"
+disemvowel("ruby");// == "rby"xz
+//disemvowel("aeiou");// == ""
+
+__
+function minsToHoursAndMins (mins) {
+  var hours = Math.floor (mins/60);
+  var minutes = mins % 60;
+  var minutesString = ('00' + minutes).slice(-2)
+  var hourAndMin = hours + ':' + minutesString;
+  return hourAndMin;
+}
+
+minsToHoursAndMins(65)
+
+function positionsOfTwoNumsThatSumToZero (array) {
+  var positionArray = [];
+  for (var i = 0; i < array.length; i++) {
+    if (array[i] === 0) {
+      positionArray.push(i,i);
+      return positionArray;
+    } else {
+      for (var j = 0; j < array.length; j++) {
+        if (array[i] + array[j] === 0) {
+          positionArray.push(i,j);
+          return positionArray;
+        }
+      }
+    }
+  }
+  return null;
+}
+positionsOfTwoNumsThatSumToZero([1,2,3,-2])
+
+___
+function returnThirdGreatestNum (array) {
+  var orderMostToLeast012 = array[0] > array[1] && array[1] > array[2];
+  var orderMostToLeast021 = array[0] > array[2] && array[2] > array[1];
+  var orderMostToLeast102 = array[1] > array[0] && array[0] > array[2];
+  var orderMostToLeast120 = array[1] > array[2] && array[2] > array[0];
+  var orderMostToLeast201 = array[2] > array[0] && array[0] > array[1];
+  var orderMostToLeast210 = array[2] > array[1] && array[1] > array[0];
+  switch ()
+}
+
+function returnMostCommonLetterAndCount (string) {
+  var mostCommonLetter = '';
+  var count = 0;
+  var obj = {};
+  for (var i = 0; i < string.length; i++) {
+    if (obj.hasOwnProperty(string[i])) {
+      obj[string[i]]++;
+    } else {
+      obj[string[i]] = 1;
+    }
+  }
+  var highestCount = 0;
+  var character;
+  for (var key in obj) {
+    if (obj[key] > highestCount) {
+      highestCount = obj[key];
+      character = key;
+    }
+  }
+  var arrayContainingAnswer = [];
+  arrayContainingAnswer.push(character, highestCount);
+  return arrayContainingAnswer;
+}
+
+/*# Write a method that takes in a string. Your method should return the
+# most common letter in the array, and a count of how many times it
+# appears.
+#
+# Difficulty: medium.*/
+
+function returnMostCommonLetterAndCount (string) {
+  var mostCommonLetter = '';
+  var count = 0;
+  var obj = {};
+  for (var i = 0; i < string.length; i++) {
+    if (obj.hasOwnProperty(string[i])) {
+      obj[string[i]]++;
+    } else {
+      obj[string[i]] = 1;
+    }
+  }
+  var highestCount = 0;
+  var character;
+  for (var key in obj) {
+    if (obj[key] > highestCount) {
+      highestCount = obj[key];
+      character = key;
+    }
+  }
+  var arrayContainingAnswer = [];
+  arrayContainingAnswer.push(character, highestCount);
+  return arrayContainingAnswer;
+}
+
+returnMostCommonLetterAndCount('abcaabbb');
+/*
+# These are tests to check that your code is working. After writing
+# your solution, they should all print true.
+
+puts(
+  'most_common_letter("abca") == ["a", 2]: ' +
+  (most_common_letter('abca') == ['a', 2]).to_s
+)
+puts(
+  'most_common_letter("abbab") == ["b", 3]: ' +
+  (most_common_letter('abbab') == ['b', 3]).to_s
+)
+*/
