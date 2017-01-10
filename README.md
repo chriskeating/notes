@@ -699,3 +699,124 @@ puts(
   (most_common_letter('abbab') == ['b', 3]).to_s
 )
 */
+
+function numberToStringWithDashesAroundOddNumbers (num) {
+  var numToString = num.toString();
+  var stringWithDashes = '';
+  for (var i = 0; i < numToString.length; i++) {
+    if (numToString[i] % 2 === 1) {
+      stringWithDashes += '-' + numToString[i] + '-';
+    } else {
+      stringWithDashes += numToString[i];
+    }
+  }
+  for (var j = 0; j < stringWithDashes.length; j++) {
+    if ((stringWithDashes[j] === '-') && (stringWithDashes[j+1] === '-')) {
+      stringWithDashes = stringWithDashes.substr(0,j) + stringWithDashes.substr(j+1);
+    }
+  }
+  if (stringWithDashes[0] === '-') {
+    stringWithDashes = stringWithDashes.substr(1);
+  }
+  if (stringWithDashes[stringWithDashes.length - 1] === '-') {
+    stringWithDashes = stringWithDashes.substr(0,stringWithDashes.length - 1);
+  }
+  return stringWithDashes;
+}
+function capitalizeFirstLetterOfAllWords(string) {
+  var splitString = string.split(' ');
+  var firstLetterCapitalizedArray = [];
+  for (var i = 0; i < splitString.length; i++) {
+    firstLetterCapitalizedArray.push(splitString[i][0].toUpperCase() + splitString[i].substr(1));
+  }
+  var capitalizedSentence = firstLetterCapitalizedArray.join();
+  var capitalizedSentenceWithSpace = capitalizedSentence.replace(/,/g, ' ')
+  return capitalizedSentenceWithSpace;
+}
+
+capitalizeFirstLetterOfAllWords('a whole new world');
+
+function returnNthPrimeNum (n) {
+function returnTrueIfPrime (num) {
+  var isPrime = true;
+  var primeNumArray = [];
+  for (var i = 2; i < num; i++) {
+    var result = num % i;
+     if (result === 0) {
+       isPrime = false;
+       return isPrime;
+     } 
+  }
+  return isPrime;
+}
+var count = 0;
+var number = 1;
+while (count < n) {
+  number++;
+  if (returnTrueIfPrime(number) === true) {
+    count++;
+  }
+}
+return number;
+}
+
+returnNthPrimeNum(1);//2
+returnNthPrimeNum(2);//3
+returnNthPrimeNum(3);//5
+returnNthPrimeNum(4);//7
+returnNthPrimeNum(5);//11
+
+__
+
+function returnGreatestCommonFactor(num1,num2) {
+  if (num1 % num2 === 0) {
+    return num2;
+  } else if (num2 % num1 === 0) {
+    return num1;
+  }
+  var GCF = 1;
+  if (num1 > num2) {
+    for (var i = 2; i < num2; i++) {
+      if (num1 % i === 0 && num2 % i === 0) {
+        GCF = i;
+      }
+    }
+  } else {
+    for (var j = 2; j < num1; j++) {
+      if (num1 % j === 0 && num2 % j === 0) {
+        GCF = j;
+      }
+    }
+  }
+  return GCF;
+}
+returnGreatestCommonFactor(16,24)
+
+____
+
+function offsetStringUsingInteger (int,string) {
+  while (int > 26) {
+    int -= 26;
+  }
+  if (int === 26) {
+    return string;
+  }
+  var returnString = '';
+  for (var i = 0; i < string.length; i++) {
+    if (string[i] === ' ') {
+      returnString += ' ';
+    } else {
+      var shiftedNum = string.charCodeAt(i) + int;
+      if (shiftedNum > 122) {
+        shiftedNum = shiftedNum - 26;
+      }
+      var shiftedLetter = String.fromCharCode(shiftedNum);
+      returnString = returnString + shiftedLetter;
+    }
+    
+  }
+  
+  return returnString;
+}
+offsetStringUsingInteger(3,'abc');
+offsetStringUsingInteger(3,'abc xyz');
