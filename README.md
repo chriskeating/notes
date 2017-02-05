@@ -820,3 +820,74 @@ function offsetStringUsingInteger (int,string) {
 }
 offsetStringUsingInteger(3,'abc');
 offsetStringUsingInteger(3,'abc xyz');
+
+var firstNames = ['Lars', 'Pejma', 'Kenji'];
+var lastNames = ['Buebke', 'Jackson', 'deBoisBlanc'];
+
+//In as few lines of code as possible, generate an array containing all the combinations of first names and last names.
+function allPossibleNames (firstNames, lastNames) {
+  var possibleNamesArray = [];
+  for (var i = 0; i < lastNames.length; i++) {
+    for (var j = 0; j < firstNames.length; j++) {
+      possibleNamesArray.push(firstNames[j] + ' ' + lastNames[i]);
+    }
+  }
+  return possibleNamesArray;
+}
+
+console.log(allPossibleNames(firstNames, lastNames));
+
+function reverse(str) {
+  if (str.length === 0) {
+    return str;
+  }
+  return reverse(str.slice(1)) + str[0];
+}
+
+let output = reverse('happy');
+console.log(output);
+
+1st call: reverse('happy')
+  return 2nd call: reverse('appy') + 'h'
+    return 3rd call: reverse('ppy') + 'a'
+      return 4th call: reverse('py') + 'p'
+        return 5th call: reverse('y') + 'p'
+          return 6th call: reverse('')+ 'y'
+          return 'y'
+        return 'yp'
+      return 'ypp'
+    return 'yppa'
+  return 'yppah'
+  
+  
+function every(array, callbackFunction) {
+  var doesEveryElementMatch = true;
+  array.forEach(function(element) {
+    if (doesEveryElementMatch === false) {
+      return;
+    }
+    doesEveryElementMatch = callbackFunction(element);
+  });
+  return doesEveryElementMatch;
+}
+
+function square (n) {
+  return n * n;
+}
+
+function assertEqual(actual, expected, testName) {
+  if (actual === expected) {
+    console.log('passed');
+  } else {
+    console.log('failed');
+  }
+}
+
+function isEven (n) {
+  return n % 2 === 0;
+}
+
+var arrayOfNum1 = [1,2,3,4];
+var arrayOfNum2 = [2,3,4,5];
+
+console.log(every(arrayOfNum1, isEven));
