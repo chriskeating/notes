@@ -891,3 +891,43 @@ var arrayOfNum1 = [1,2,3,4];
 var arrayOfNum2 = [2,3,4,5];
 
 console.log(every(arrayOfNum1, isEven));
+
+
+
+function PhoneNumberFormatter(numbers) {
+  this.numbers = numbers;
+}
+
+PhoneNumberFormatter.prototype.render = function(numbers) {
+  var string = '';
+  numbers.forEach(function(element) {
+    string += element;
+  });
+  return string;
+};
+
+PhoneNumberFormatter.prototype.getAreaCode = function(numbers) {
+  return this.render(numbers).substring(0,3);
+};
+
+PhoneNumberFormatter.prototype.getExchangeCode = function(numbers) {
+  return this.render(numbers).substring(3,6);
+};
+
+PhoneNumberFormatter.prototype.getLineNumber = function(numbers) {
+  return this.render(numbers).substring(6);
+};
+
+PhoneNumberFormatter.prototype.parenthesize = function(numbers) {
+  return '(' + this.getAreaCode(numbers) + ')';
+};
+
+PhoneNumberFormatter.prototype.slice = function(numbers) {
+  return this.parenthesize(numbers) + ' ' + this.getExchangeCode(numbers) + '-' + this.getLineNumber(numbers);
+};
+
+var me = new PhoneNumberFormatter ([1,2,3,4,5,6,7,8,9,0]);
+console.log(me.slice([1,2,3,4,5,6,7,8,9,0]));
+
+var pn = new PhoneNumberFormatter([6, 5, 0, 8, 3, 5, 9, 1, 7, 2]);
+console.log(pn.slice([6, 5, 0, 8, 3, 5, 9, 1, 7, 2]));
