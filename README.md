@@ -931,3 +931,34 @@ console.log(me.slice([1,2,3,4,5,6,7,8,9,0]));
 
 var pn = new PhoneNumberFormatter([6, 5, 0, 8, 3, 5, 9, 1, 7, 2]);
 console.log(pn.slice([6, 5, 0, 8, 3, 5, 9, 1, 7, 2]));
+
+/*
+You are given an array of integer altitudes along a hiking trail, as well as two indexes into that array. The two indexes represent the start and end of a segment in the array. 
+
+Return the sum of the changes for a walk within that segment (i.e., beginning at the start index and ending at the end index).
+
+Note that *increases* in height count double. 
+
+For example, with the heights `[5, 3, 6, 7, 2]` and `start=2`, `end=4`, the return value should be 7.
+
+sumAltitudeDeltas([5, 3, 6, 7, 2], 2, 4) --> 7
+sumAltitudeDeltas([5, 3, 6, 7, 2], 0, 1) --> 2
+sumAltitudeDeltas([5, 3, 6, 7, 2], 0, 4) --> 15
+*/
+
+function findChangeInAlititude (array, start, end) {
+  var sum = 0;
+  for (var i = start; i < end; i++) {
+    var differenceInConsecutiveIndices = array[i + 1] - array[i];
+    if (differenceInConsecutiveIndices > 0) {
+      sum += differenceInConsecutiveIndices * 2;
+    } else {
+      sum += Math.abs(differenceInConsecutiveIndices);
+    }
+  }
+  return sum;
+}
+
+console.log(findChangeInAlititude([5, 3, 6, 7, 2], 2, 4));// --> 7
+console.log(findChangeInAlititude([5, 3, 6, 7, 2], 0, 1));// --> 2
+console.log(findChangeInAlititude([5, 3, 6, 7, 2], 0, 4));// --> 15
